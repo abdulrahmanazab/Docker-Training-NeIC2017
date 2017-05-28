@@ -52,3 +52,66 @@ DockerVersion = "Docker version 17.03.1-ce, build c6d412e"
 HasDocker = true
 StarterAbilityList = "HasDocker,HasFileTransfer,HasTDP,HasPerFileEncryption,HasVM,HasReconnect,HasMPI,HasFileTransferPluginMethods,HasJobDeferral,HasJICLocalStdin,HasJICLocalConfig"
 ```
+Use htcondor
+------------
+* First set the following values in ``/etc/condor/condor_config``
+```bash
+CONDOR_HOST = $(IP_ADDRESS)
+STARTER_ALLOW_RUNAS_OWNER = TRUE
+TRUST_UID_DOMAIN=TRUE
+```
+* Submit a simple job
+```bash
+$ cat > job.sub
+universe = vanilla
+executable = /bin/date
+output = job.out
+error = job.err
+queue
+CTRL+D
+
+$ condor_submit job.sub
+Submitting job(s).
+1 job(s) submitted to cluster 1.
+
+$ cat job.out
+Sun Jan 22 11:05:40 UTC 2017
+```
+* Submit a job to the docker universe
+```bash
+$ cat > docker_job.sub
+universe = docker
+docker_image = centos
+executable = /bin/cat
+arguments = /etc/system-release
+output = docker_job.out
+error = docker_job.err
+queue
+ctrl+D
+
+$ condor_submit docker_job.sub
+Submitting job(s).
+1 job(s) submitted to cluster 12.
+
+$ condor_q
+
+
+-- Schedd: docker-test.novalocal : <192.168.1.126:9618?... @ 05/28/17 23:10:40
+OWNER      BATCH_NAME       SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
+cloud-user CMD: /bin/cat   5/28 23:10      _      1      _      1 12.0
+
+1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
+
+$ cat docker_job.out
+NAME="Ubuntu"
+VERSION="16.04.2 LTS (Xenial Xerus)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 16.04.2 LTS"
+VERSION_ID="16.04"
+HOME_URL="http://www.ubuntu.com/"
+SUPPORT_URL="http://help.ubuntu.com/"
+BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+VERSION_CODENAME=xenial
+UBUNTU_CODENAME=xenial
+```
