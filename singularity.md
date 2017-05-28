@@ -105,7 +105,20 @@ Done.
 ```
 Bootstrap images
 ------------------
-* Create a [ubuntu (from docker) def file](https://github.com/singularityware/singularity/blob/master/examples/docker.def) ubuntu.def
+* Create a ubuntu (from docker) def file
+```bash
+cat >> ubuntu.def
+BootStrap: docker
+From: ubuntu:latest
+
+%runscript
+    echo "This is what happens when you run the container..."
+
+
+%post
+    echo "Hello from the container"
+    echo "Install additional software here"
+```
 * Create an image
 ```bash
 sudo singularity create ubuntu.img
