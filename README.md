@@ -78,3 +78,7 @@ Here we go...
 --------------
 * [Run your first container](http://training.play-with-docker.com/alpine/)
 * [Run a simple web app](http://training.play-with-docker.com/webapps/)
+* [Docker images](http://training.play-with-docker.com/docker-images/)
+* [Docker containers](http://training.play-with-docker.com/docker-containers/)
+* [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
+* [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
