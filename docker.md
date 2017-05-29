@@ -69,6 +69,29 @@ For more examples and ideas, visit:
 ```
 * [Official page](https://docs.docker.com/engine/installation/linux/centos/)
 
+Docker with user namespaces
+----------------------------
+
+First, verify that user namespaces are enabled on the kernel. There are many popular but inaccurate way to do this. the accurate way is to verify that /proc/self exists. Note that rhel7 with kernel 3.10.x supports user namespaces, while centos7 with the same kernel version doesn't
+Add a new user dockremap (yes dockremap not dockermap):
+useradd dockremap
+Create subuid and subgid files with the user and group id remap ranges:
+```bash
+echo dockremap:500000:65536 > /etc/subuid
+echo dockremap:500000:65536 > /etc/subgid
+```
+For this mapping, root (UID 0) will be mapped to UID 500000
+Enable user namespaces on the RHEL7 host:
+```bash
+grubby --args="user_namespace.enable=1" --update-kernel="$(grubby --default-kernel)"
+```
+Reboot
+In case you want later to disable user namespaces, do:
+```bash
+grubby --remove-args="user_namespace.enable=1" --update-kernel="$(grubby --default-kernel)"
+```
+Then reboot
+
 Here we go...
 --------------
 * [Run your first container](http://training.play-with-docker.com/alpine/)
