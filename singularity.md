@@ -127,6 +127,18 @@ sudo singularity create ubuntu.img
 ```bash
 sudo singularity bootstrap ubuntu.img ubuntu.def
 ```
+Import an image
+----------------
+```bash
+$ gunzip -c debian.tar.gz | sudo singularity import /tmp/Debian
+$ sudo singularity import /tmp/Debian.img debian.tar.gz
+$ sudo singularity import /tmp/Debian.img file://debian.tar.gz
+$ sudo singularity import /tmp/Debian.img http://foo.com/debian.tar.gz
+$ sudo singularity import /tmp/Debian.img docker://ubuntu:latest
+```
+More ...
+-------------
+* [File sharing](http://singularity.lbl.gov/docs-mount)
 Useful links
 -------------
 * [Intro video](http://singularity.lbl.gov/2015-singularity-intro-video)
