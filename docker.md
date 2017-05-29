@@ -1,5 +1,7 @@
 # Docker
 
+Your VM is a CentOs 7
+
 Install
 ---------------
 * Install required packages:
