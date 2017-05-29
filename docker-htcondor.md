@@ -115,3 +115,8 @@ BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
 VERSION_CODENAME=xenial
 UBUNTU_CODENAME=xenial
 ```
+Useful links
+-------------
+* [Install Condor](https://research.cs.wisc.edu/htcondor/instructions/el/7/stable/)
+* [Configure Condor for multiple nodes](https://spinningmatt.wordpress.com/2011/06/12/getting-started-creating-a-multiple-node-condor-pool/)
+* [Condor security](http://research.cs.wisc.edu/htcondor/manual/v8.2/3_6Security.html)
