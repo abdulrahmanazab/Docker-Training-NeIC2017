@@ -87,6 +87,10 @@ Singularity.ubuntu:latest> which apt-get
 /usr/bin/apt-get
 Singularity.ubuntu:latest> exit
 ```
+* Execute a command on a pulled image
+```bash
+singularity exec docker://python:latest /usr/local/bin/python hello.py
+```
 * Create an image
 ```bash
 $ sudo singularity create /tmp/container.img
