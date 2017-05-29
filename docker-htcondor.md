@@ -52,7 +52,7 @@ DockerVersion = "Docker version 17.03.1-ce, build c6d412e"
 HasDocker = true
 StarterAbilityList = "HasDocker,HasFileTransfer,HasTDP,HasPerFileEncryption,HasVM,HasReconnect,HasMPI,HasFileTransferPluginMethods,HasJobDeferral,HasJICLocalStdin,HasJICLocalConfig"
 ```
-Use htcondor
+Use HTCondor
 ------------
 * First set the following values in ``/etc/condor/condor_config``
 ```bash
@@ -115,6 +115,47 @@ BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
 VERSION_CODENAME=xenial
 UBUNTU_CODENAME=xenial
 ```
+HTCondor Docker job with mounted volumes
+---------------------------------------
+* Create directories for input/output volumes
+```bash
+mkdir docker_in
+echo hello! > docker_in/infile
+mkdir docker_out
+```
+* Configure Condor to mount volumes on Docker images, as root:
+```bash
+$ sudo cat > /etc/condor/config.d/docker
+#Define volumes to mount:
+DOCKER_VOLUMES = DOCKER_IN, DOCKER_OUT
+
+#Define a mount point for each volume:
+DOCKER_VOLUME_DIR_DOCKER_IN = /home/user/docker_in:/input:ro
+DOCKER_VOLUME_DIR_DOCKER_OUT = /home/user/docker_out:/output:rw
+
+#Configure those volumes to be mounted on each Docker container:
+DOCKER_MOUNT_VOLUMES = DOCKER_IN, DOCKER_OUT
+ctrl+D
+```
+* Create the submission script and submit the job
+```bash
+$ cat > docker_volumes_job.sub
+universe = docker
+docker_image = centos
+executable = /bin/cp
+arguments = /input/infile /output/outfile
+output = docker_volumes_job.out
+error = docker_volumes_job.err
+queue
+ctrl+D
+
+$ condor_submit docker_volumes_job.sub
+Submitting job(s).
+1 job(s) submitted to cluster 7.
+$ cat docker_out/outfile
+hello!
+```
+
 Useful links
 -------------
 * [Install Condor](https://research.cs.wisc.edu/htcondor/instructions/el/7/stable/)
