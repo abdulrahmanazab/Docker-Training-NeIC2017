@@ -92,6 +92,11 @@ grubby --remove-args="user_namespace.enable=1" --update-kernel="$(grubby --defau
 ```
 Then reboot
 
+* In ``/usr/lib/systemd/system/docker.service``:
+```bash
+ExecStart=/usr/bin/dockerd --userns-remap=default
+```
+
 Here we go...
 --------------
 * [Run your first container](http://training.play-with-docker.com/alpine/)
