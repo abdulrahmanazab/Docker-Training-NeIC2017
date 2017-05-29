@@ -139,6 +139,7 @@ $ sudo singularity import /tmp/Debian.img docker://ubuntu:latest
 More ...
 -------------
 * [File sharing](http://singularity.lbl.gov/docs-mount)
+
 Useful links
 -------------
 * [Intro video](http://singularity.lbl.gov/2015-singularity-intro-video)
