@@ -9,7 +9,6 @@ ssh -i docker-tutorial.pem cloud-user@86.50.170.193
 Tutorial contents
 ------------------
 * [Docker](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/docker.md)
-* [Singularity](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity.md)
 * [Docker on HTCondor](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/docker-htcondor.md)
-
+* [Singularity](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity.md)
 
