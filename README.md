@@ -1,4 +1,6 @@
-# Docker-Training-NeIC2017
+# Containers workshop material NeIC conference 2017
+
+The training infrastructure is offered by [cPouta](https://research.csc.fi/cpouta) at CSC, Finland.
 
 Connect to your VM
 --------------------
