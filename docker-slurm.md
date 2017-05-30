@@ -1,7 +1,7 @@
 # Docker on Slurm
 
 Installing Docker on CentOS 6.x cluster with BeeGFS
--------------------------------------------------
+-----------------------------------------------------
 Last supported docker for CentOS 6.x is docker 1.7 which doesn't support BeeGFS as a backing file-system. And if the local disk of compute nodes is small, the solution will be creating ext4 images on beegfs.
 * Assuming the shared file-system ``/work``, as root:
 ```bash
@@ -21,6 +21,10 @@ vim /etc/sysconfig/docker
 # If docker complained, do the following instead:
 mv /var/lib/docker /docker/
 ln -s /docker/docker /var/lib/docker
+
+# Create the docker group and add the dockerroot user to it:
+groupadd docker
+usermod -aG docker dockerroot
 
 # Start docker service and configure it to start on boot
 service docker start
