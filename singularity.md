@@ -133,6 +133,15 @@ sudo singularity create ubuntu.img
 ```bash
 sudo singularity bootstrap ubuntu.img ubuntu.def
 ```
+* Push the container image to Abel cluster and login
+```bash
+sftp <username>@abel.uio.no
+sftp> put ubuntu.img
+sftp> exit
+ssh <username>@abel.uio.no
+```
+* Submit a [test singularity job](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity-slurm-abel.sh) to slurm on abel
+
 Import an image
 ----------------
 ```bash
