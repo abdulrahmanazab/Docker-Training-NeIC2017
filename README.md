@@ -13,5 +13,6 @@ Tutorial contents
 ------------------
 * [Docker](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/docker.md)
 * [Docker on HTCondor](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/docker-htcondor.md)
+* [Docker on Slurm](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/docker-slurm.md)
 * [Singularity](https://github.com/abdulrahmanazab/Docker-Training-NeIC2017/blob/master/singularity.md)
 
