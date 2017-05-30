@@ -30,3 +30,6 @@ usermod -aG docker dockerroot
 service docker start
 chkconfig docker on
 ```
+Install Socker
+---------------
+Socker is secure for enabling unprivileged users to run Docker containers on Slurm. Details are [here](https://github.com/unioslo/socker)
