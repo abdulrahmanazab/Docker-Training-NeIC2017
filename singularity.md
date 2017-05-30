@@ -93,7 +93,7 @@ Singularity.ubuntu:latest> exit
 
 * Create an image
 ```bash
-$ sudo singularity create /tmp/container.img
+$ sudo singularity create container.img
 Creating a new image with a maximum size of 768MiB...
 Executing image create helper
 Formatting image with ext3 file system
@@ -101,7 +101,7 @@ Done.
 ```
 * Customize the image size
 ```bash
-$ sudo singularity create --size 2048 /tmp/container.img
+$ sudo singularity create --size 2048 container.img
 Creating a new image with a maximum size of 2048MiB...
 Executing image create helper
 Formatting image with ext3 file system
