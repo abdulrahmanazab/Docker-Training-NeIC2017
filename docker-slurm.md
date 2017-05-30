@@ -32,4 +32,4 @@ chkconfig docker on
 ```
 Install Socker
 ---------------
-Socker is secure for enabling unprivileged users to run Docker containers on Slurm. Details are [here](https://github.com/unioslo/socker)
+To run docker jobs securely on Slurm, you need to install [socker](https://github.com/unioslo/socker)
