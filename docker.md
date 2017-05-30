@@ -1,8 +1,8 @@
 # Docker
 
-Your VM is a CentOs 7
+Your VM is a CentOS 7
 
-Install
+Install Docker
 ---------------
 * Install required packages:
 ```bash
