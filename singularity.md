@@ -117,11 +117,13 @@ From: ubuntu:latest
 
 %runscript
     echo "This is what happens when you run the container..."
-
+    
 
 %post
     echo "Hello from the container"
     echo "Install additional software here"
+    # This part is for Abel and colossus clusters at UiO:
+    mkdir /cluster /work /tsd /usit /projects
 ```
 * Create an image
 ```bash
