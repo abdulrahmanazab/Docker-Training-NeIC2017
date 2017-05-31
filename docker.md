@@ -92,9 +92,16 @@ grubby --remove-args="user_namespace.enable=1" --update-kernel="$(grubby --defau
 ```
 Then reboot
 
-* In ``/usr/lib/systemd/system/docker.service``:
+* Modify the ``ExecStart`` attribute in ``/usr/lib/systemd/system/docker.service``:
 ```bash
 ExecStart=/usr/bin/dockerd --userns-remap=default
+```
+* test that the container root is remapped. Run a sleep process and verify that the container root is remapped to 500000:
+```bash
+docker run -d -it centos sleep 100
+ps -ef | grep sleep
+500000    2970  2953  0 19:29 pts/1    00:00:00 sleep 100
+root      2990  2593  0 19:30 pts/0    00:00:00 grep --color=auto sleep
 ```
 
 Here we go...
