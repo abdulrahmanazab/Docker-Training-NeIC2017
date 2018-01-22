@@ -106,9 +106,10 @@ root      2990  2593  0 19:30 pts/0    00:00:00 grep --color=auto sleep
 
 Here we go...
 --------------
-* [Run your first container](http://training.play-with-docker.com/alpine/)
-* [Run a simple web app](http://training.play-with-docker.com/webapps/)
-* [Docker images](http://training.play-with-docker.com/docker-images/)
+* [Run your first container](http://training.play-with-docker.com/ops-s1-hello/)
+* [Docker for beginners - Linux](http://training.play-with-docker.com/beginner-linux/)
+* [Run a simple web app](http://training.play-with-docker.com/node-sql-server-docker/)
+* [Docker images](http://training.play-with-docker.com/ops-s1-images/)
 * [Docker containers](http://training.play-with-docker.com/docker-containers/)
 * [Docker volumes](http://training.play-with-docker.com/docker-volumes/)
 * [Docker swarm](http://training.play-with-docker.com/swarm-mode-intro/)
