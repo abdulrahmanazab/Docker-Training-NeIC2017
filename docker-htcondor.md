@@ -60,7 +60,11 @@ CONDOR_HOST = $(IP_ADDRESS)
 STARTER_ALLOW_RUNAS_OWNER = TRUE
 TRUST_UID_DOMAIN=TRUE
 ```
-* Submit a simple job
+* Then apply the new configuration to HTCondor
+```bash
+condor_reconfig
+```
+* Now submit a simple job
 ```bash
 $ cat > job.sub
 universe = vanilla
