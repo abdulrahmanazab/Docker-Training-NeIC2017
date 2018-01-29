@@ -85,9 +85,9 @@ Sun Jan 22 11:05:40 UTC 2017
 ```bash
 $ cat > docker_job.sub
 universe = docker
-docker_image = centos
+docker_image = ubuntu
 executable = /bin/cat
-arguments = /etc/system-release
+arguments = /etc/os-release
 output = docker_job.out
 error = docker_job.err
 queue
@@ -134,8 +134,8 @@ $ sudo cat > /etc/condor/config.d/docker
 DOCKER_VOLUMES = DOCKER_IN, DOCKER_OUT
 
 #Define a mount point for each volume:
-DOCKER_VOLUME_DIR_DOCKER_IN = /home/user/docker_in:/input:ro
-DOCKER_VOLUME_DIR_DOCKER_OUT = /home/user/docker_out:/output:rw
+DOCKER_VOLUME_DIR_DOCKER_IN = /home/cloud-user/docker_in:/input:ro
+DOCKER_VOLUME_DIR_DOCKER_OUT = /home/cloud-user/docker_out:/output:rw
 
 #Configure those volumes to be mounted on each Docker container:
 DOCKER_MOUNT_VOLUMES = DOCKER_IN, DOCKER_OUT
